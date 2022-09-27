@@ -15,9 +15,9 @@ public class Hacker extends Hero {
         boss.setHealth(boss.getHealth() - this.stolenHP);
         this.randomHero = RPG_Game.random.nextInt(heroes.length);
 
-        for (int randomHero = 0; randomHero < heroes.length; randomHero++) {
-            if (heroes[randomHero] != this && this.getHealth() > 0 && heroes[randomHero].getHealth() < 0) {
-                heroes[randomHero].setHealth(heroes[randomHero].getHealth() + stolenHP);
+        for (Hero hero : heroes) {
+            if (hero != this && this.getHealth() > 0 && hero.getHealth() < 0) {
+                hero.setHealth(hero.getHealth() + stolenHP);
                 break;
             }
         }

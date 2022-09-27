@@ -18,7 +18,7 @@ public class RPG_Game {
         Hacker hacker = new Hacker(240, 20, "Indus");
         Thor thor = new Thor(300, 20, "JaneFoster");
         Uchiha uchiha = new Uchiha(200, 15, "Itachi");
-        Hero[] heroes = {warrior, doc, magic, berserk, assistant, hacker, thor, uchiha};
+        Hero[] heroes = {uchiha, warrior, doc, magic, berserk, assistant, hacker, thor};
 
         printStatistics(boss, heroes);
         while (!isGameFinished(boss, heroes)) {
@@ -30,11 +30,11 @@ public class RPG_Game {
         roundNumber++;
         boss.chooseDefence(heroes);
         boss.attack(heroes);
-        for (int i = 0; i < heroes.length; i++) {
-            if (heroes[i].getAbility() != boss.getDefence()
-                    && heroes[i].getHealth() > 0) {
-                heroes[i].attack(boss);
-                heroes[i].applySuperPower(boss, heroes);
+        for (Hero hero : heroes) {
+            if (hero.getAbility() != boss.getDefence()
+                    && hero.getHealth() > 0) {
+                hero.attack(boss);
+                hero.applySuperPower(boss, heroes);
             }
         }
         printStatistics(boss, heroes);
@@ -43,8 +43,8 @@ public class RPG_Game {
     private static void printStatistics(Boss boss, Hero[] heroes) {
         System.out.println("\n"+"ROUND " + roundNumber + " --------------------------------------");
         System.out.println(boss);
-        for (int i = 0; i < heroes.length; i++) {
-            System.out.println(heroes[i]);
+        for (Hero hero : heroes) {
+            System.out.println(hero);
         }
         System.out.println();
     }
@@ -55,8 +55,8 @@ public class RPG_Game {
             return true;
         }
         boolean allHeroesDead = true;
-        for (int i = 0; i < heroes.length; i++) {
-            if (heroes[i].getHealth() > 0) {
+        for (Hero hero : heroes) {
+            if (hero.getHealth() > 0) {
                 allHeroesDead = false;
                 break;
             }

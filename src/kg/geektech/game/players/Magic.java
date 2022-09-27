@@ -9,8 +9,8 @@ public class Magic extends Hero {
 
     @Override
     public void applySuperPower(Boss boss, Hero[] heroes) {
-        for (int i = 0; i < heroes.length; i++) {
-                heroes[i].setDamage(heroes[i].getDamage() + boostPoints);
+        for (Hero hero : heroes) {
+            hero.setDamage(hero.getDamage() + boostPoints);
         }
         System.out.println(this.getName()+" boosted every-hero's damage for "+boostPoints+" units!");
     }

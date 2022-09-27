@@ -1,7 +1,7 @@
 package kg.geektech.game.players;
 
 public abstract class Hero extends GameEntity implements HavingSuperAbility {
-    private SuperAbility ability;
+    private final SuperAbility ability;
 
     public Hero(int health, int damage, String name, SuperAbility ability) {
         super(health, damage, name);

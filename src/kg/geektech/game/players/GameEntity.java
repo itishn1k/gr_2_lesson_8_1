@@ -3,7 +3,7 @@ package kg.geektech.game.players;
 public abstract class GameEntity {
     private int health;
     private int damage;
-    private String name;
+    private final String name;
 
     public GameEntity(int health, int damage, String name) {
         this.health = health;
@@ -16,11 +16,7 @@ public abstract class GameEntity {
     }
 
     public void setHealth(int health) {
-        if (health < 0) {
-            this.health = 0;
-        } else {
-            this.health = health;
-        }
+        this.health = Math.max(health, 0);
     }
 
     public int getDamage() {
@@ -33,10 +29,6 @@ public abstract class GameEntity {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override

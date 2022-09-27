@@ -12,16 +12,16 @@ public class Uchiha extends Hero {
     public void applySuperPower(Boss boss, Hero[] heroes) {
         eyeLevel = RPG_Game.random.nextInt(3);
         switch (eyeLevel) {
-            case (1):
+            case (1) -> {
                 this.setHealth(this.getHealth() + boss.getDamage());
                 System.out.println(this.getName() + " dodged a blow from " + boss.getName());
-                break;
-            case (2):
+            }
+            case (2) -> {
                 boss.setHealth(boss.getHealth() - boss.getDamage());
                 super.setDamage(0);
                 boss.setDamage(0);
-                System.out.println(this.getName()+" forced "+boss.getName()+ " to hit themself");
-                break;
+                System.out.println(this.getName() + " forced " + boss.getName() + " to hit themself");
+            }
         }
     }
 }

@@ -15,9 +15,9 @@ public class Boss extends GameEntity {
     }
 
     public void attack(Hero[] heroes) {
-        for (int i = 0; i < heroes.length; i++) {
-            if (heroes[i].getHealth() > 0) {
-                heroes[i].setHealth(heroes[i].getHealth() - this.getDamage());
+        for (Hero hero : heroes) {
+            if (hero.getHealth() > 0) {
+                hero.setHealth(hero.getHealth() - this.getDamage());
             }
         }
     }
